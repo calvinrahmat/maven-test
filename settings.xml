@@ -1,0 +1,53 @@
+<settings>
+    <mirrors>
+        <mirror>
+            <!-- This sends everything else to /public -->
+            <id>namarepo</id>
+            <mirrorOf>*</mirrorOf>
+            <url>https://nexus-pro-dev.bni.co.id/repository/namarepo</url>
+        </mirror>
+    </mirrors>
+    <servers>
+        <server>
+            <id>namarepo</id>
+            <username>devops</username>
+            <password>password</password>
+        </server>
+    </servers>
+    <profiles>
+        <profile>
+            <id>nexus</id>
+            <!-- Enable snapshots for the built-in central repo to direct -->
+            <!-- all requests to nexus via the mirror -->
+            <repositories>
+                <repository>
+                    <id>central</id>
+                    <url>http://central</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </repository>
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>central</id>
+                    <url>http://central</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </pluginRepository>
+            </pluginRepositories>
+        </profile>
+    </profiles>
+    <activeProfiles>
+        <!-- Make the profile active all the time -->
+        <activeProfile>nexus</activeProfile>
+    </activeProfiles>
+</settings>
+
